@@ -4,6 +4,30 @@ import './App.css';
 
 class App extends Component {
   render() {
+
+    const user = {
+      firstName: 'Zac',
+      lastName: 'Lee'
+    }
+
+    function formatName(user){
+          return user.firstName + ' ' + user.lastName;   
+    }
+
+    function getGreeting(user){
+      
+      var name = ''
+
+      if(user){
+        name = formatName(user)
+      } else{
+        name = 'Stanger'
+      }
+
+      const greeting = <h1>Hello, {name}</h1>
+      return greeting
+    }
+ 
     return (
       <div className="App">
         <header className="App-header">
@@ -19,6 +43,8 @@ class App extends Component {
           >
             Learn React
           </a>
+
+          {getGreeting(user)}
         </header>
       </div>
     );
